@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "2adcd3b6-4e82-418b-9364-c665c9e7677c",
+  "alias": "EmailSignatureWebPart",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": { "default": "Other" },
+      "title": { "default": "Email signature", "fr-fr": "Signature électronique", "es-es": "Firma de correo electrónico" },
+      "description": { "default": "Show branded email signatures with profile properties." },
+      "officeFabricIconFontName": "CreateMailRule",
+      "properties": {
+        "addCircleMask": true,
+        "customProperties": [
+          { "editable": false, "key": "companyName", "label": "Company name", "value": "Example Company" },
+          { "editable": false, "key": "companyUrl", "label": "Company URL", "value": "https://www.example.com" },
+          { "editable": true, "key": "companyWebsite", "label": "Company website", "value": "www.example.com" }
+        ],
+        "enableEditing": true,
+        "forceLowercaseEmails": true,
+        "htmlTemplate": "<table cellpadding='0' cellspacing='0' style='vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;'>\r\n  <tbody>\r\n    <tr>\r\n      <td>\r\n        <table cellpadding='0' cellspacing='0' style='vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;'>\r\n          <tbody>\r\n            <tr>\r\n              {{#image}}\r\n              <td style='vertical-align: middle;' width='65'>\r\n                <img height='65' src='{{image}}' width='65' valign='middle' />\r\n              </td>\r\n              <td width='16'>\r\n                <div style='width: 16px;'>\r\n                </div>\r\n              </td>\r\n              {{/image}}\r\n              <td style='vertical-align: middle;'>\r\n                <h3 color='#000000' style='margin: 0px; font-size: 18px; color: rgb(0, 0, 0);'>\r\n                  <span>{{givenName}}</span>\r\n                  {{#surname}}\r\n                  <span>{{surname}}</span>\r\n                  {{/surname}}\r\n                </h3>\r\n                {{#jobTitle}}\r\n                <p color='#000000' font-size='medium' style='margin: 0px; color: rgb(0, 0, 0); font-size: 14px; line-height: 22px;'>\r\n                  <span>{{jobTitle}}</span>\r\n                </p>\r\n                {{/jobTitle}}\r\n                <p color='#000000' font-size='medium' style='margin: 0px; font-weight: 500; color: rgb(0, 0, 0); font-size: 14px; line-height: 22px;'>\r\n                  {{#department}}\r\n                  <span>{{department}}</span>\r\n                  <span>|</span>\r\n                  {{/department}}\r\n                  {{#companyName}}\r\n                  <span>{{companyName}}</span>\r\n                  {{/companyName}}\r\n                </p>\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"16\">\r\n        <div style=\"height: 16px;\"></div>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td style='width: 100%; border-bottom: 1px solid rgb(201, 205, 208);' width=\"100%\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"16\">\r\n        <div style=\"height: 16px;\"></div>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td style='vertical-align: middle;'>\r\n        <table cellpadding='0' cellspacing='0' style='vertical-align: -webkit-baseline-middle; font-size: medium; font-family: Arial;'>\r\n          <tbody>\r\n            {{#businessPhones}}\r\n            <tr height='25' style='vertical-align: middle;'>\r\n              <td style='padding: 0px; color: rgb(0, 0, 0);'>\r\n                <a href='tel:{{businessPhones}}' color='#000000' style='text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;'>\r\n                  <span>{{businessPhones}}</span>\r\n                </a>\r\n                {{#mobilePhone}}\r\n                <span style='color: rgb(0, 0, 0); font-size: 12px;'>|</span>\r\n                <a href='tel:{{mobilePhone}}' color='#000000' style='text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;'>\r\n                  <span>{{mobilePhone}}</span>\r\n                </a>\r\n                {{/mobilePhone}}\r\n              </td>\r\n            </tr>\r\n            {{/businessPhones}}\r\n            {{#mail}}\r\n            <tr height='25' style='vertical-align: middle;'>\r\n              <td style='padding: 0px;'>\r\n                <a href='mailto:{{mail}}' color='#000000' style='text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;'>\r\n                  <span>{{mail}}</span>\r\n                </a>\r\n              </td>\r\n            </tr>\r\n            {{/mail}}\r\n            {{#companyWebsite}}\r\n            <tr height='25' style='vertical-align: middle;'>\r\n              <td style='padding: 0px;'>\r\n                <a href='{{companyUrl}}' color='#000000' style='text-decoration: none; color: rgb(0, 0, 0); font-size: 12px;'>\r\n                  <span>{{companyWebsite}}</span>\r\n                </a>\r\n              </td>\r\n            </tr>\r\n            {{/companyWebsite}}\r\n            {{#streetAddress}}\r\n            <tr height='25' style='vertical-align: middle;'>\r\n              <td style='padding: 0px;'>\r\n                <span color='#000000' style='font-size: 12px; color: rgb(0, 0, 0);'>\r\n                  <span>{{streetAddress}}, {{city}}, {{state}}, {{postalCode}}</span>\r\n                </span>\r\n              </td>\r\n            </tr>\r\n            {{/streetAddress}}\r\n          </tbody>\r\n        </table>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>",
+        "imageSize": 130,
+        "webPartTitleText": "Email signature"
+      }
+    }
+  ]
+}

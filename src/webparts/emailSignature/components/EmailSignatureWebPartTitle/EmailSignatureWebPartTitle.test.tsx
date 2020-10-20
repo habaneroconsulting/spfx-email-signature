@@ -1,0 +1,53 @@
+import React from 'react';
+
+import { DisplayMode } from '@microsoft/sp-core-library';
+import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/extend-expect';
+import { act, fireEvent, render } from '@testing-library/react';
+
+import { EmailSignatureWebPartTitle } from './EmailSignatureWebPartTitle';
+
+describe('Email signature web part title', () => {
+  test('shows web part title', () => {
+    const { getByText } = render(
+      <EmailSignatureWebPartTitle
+        displayMode={DisplayMode.Read}
+        updateWebPartTitleText={() => {}}
+        webPartTitleText="Sample web part title"
+      />
+    );
+
+    expect(getByText(/Sample web part title/)).toBeInTheDocument();
+  });
+
+  test('not show when web part title is blank', () => {
+    const { queryByText } = render(
+      <EmailSignatureWebPartTitle displayMode={DisplayMode.Read} updateWebPartTitleText={() => {}} webPartTitleText="" />
+    );
+
+    expect(queryByText(/Sample web part title/)).toBeNull();
+  });
+
+  test('change when edited', () => {
+    const onChange = jest.fn();
+
+    const { getByText } = render(
+      <EmailSignatureWebPartTitle
+        displayMode={DisplayMode.Edit}
+        updateWebPartTitleText={onChange}
+        webPartTitleText="Sample web part title"
+      />
+    );
+
+    const textarea = getByText(/Sample web part title/) as HTMLTextAreaElement;
+
+    expect(textarea).toBeInTheDocument();
+
+    act(() => {
+      fireEvent.change(textarea, { target: { value: 'New web part title' } });
+    });
+
+    expect(onChange).toHaveBeenCalled();
+    expect(textarea.value).toBe('New web part title');
+  });
+});

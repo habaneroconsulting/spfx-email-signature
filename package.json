@@ -1,0 +1,108 @@
+{
+  "name": "spfx-email-signatures",
+  "version": "1.0.0",
+  "private": true,
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=10.21.0"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "bundle": "gulp bundle",
+    "clean": "gulp clean",
+    "dev": "gulp clean && gulp bundle && gulp package-solution",
+    "dist": "gulp clean --ship && gulp bundle --ship && gulp package-solution --ship",
+    "package-solution": "gulp package-solution",
+    "postversion": "git push && git push --tags",
+    "prettier": "prettier --write {config,scripts,src}/**/*",
+    "preversion": "node ./scripts/preversion.js $npm_package_version %npm_package_version% && git add .",
+    "serve": "gulp serve --nobrowser",
+    "serve:browser": "gulp serve",
+    "test": "jest --coverage --env=jest-environment-jsdom-sixteen",
+    "test:watch": "jest --coverage --env=jest-environment-jsdom-sixteen --watchAll",
+    "version-major": "npm version major -m \"Major version bump to %s\"",
+    "version-minor": "npm version minor -m \"Minor version bump to %s\"",
+    "version-patch": "npm version patch -m \"Patch version bump to %s\""
+  },
+  "dependencies": {
+    "@emotion/core": "10.0.35",
+    "@fluentui/react": "7.146.1",
+    "@microsoft/sp-core-library": "1.11.0",
+    "@microsoft/sp-lodash-subset": "1.11.0",
+    "@microsoft/sp-property-pane": "1.11.0",
+    "@microsoft/sp-webpart-base": "1.11.0",
+    "@pnp/spfx-property-controls": "2.0.0",
+    "clipboard-polyfill": "3.0.1",
+    "mustache": "4.0.1",
+    "react-dom": "16.9.0",
+    "react-transition-group": "4.4.1",
+    "react": "16.9.0"
+  },
+  "devDependencies": {
+    "@microsoft/rush-stack-compiler-3.9": "0.4.26",
+    "@microsoft/sp-build-web": "1.11.0",
+    "@microsoft/sp-module-interfaces": "1.11.0",
+    "@microsoft/sp-tslint-rules": "1.11.0",
+    "@microsoft/sp-webpart-workbench": "1.11.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "11.0.4",
+    "@types/es6-promise": "0.0.33",
+    "@types/mustache": "4.0.1",
+    "@types/react": "16.9.0",
+    "@types/react-dom": "16.9.0",
+    "@types/react-transition-group": "4.4.0",
+    "@types/testing-library__jest-dom": "5.9.4",
+    "@types/webpack-env": "1.15.3",
+    "canvas": "2.6.1",
+    "gulp": "3.9.1",
+    "jest": "26.5.3",
+    "jest-environment-jsdom-sixteen": "1.0.3",
+    "jest-junit": "12.0.0",
+    "prettier": "2.1.2",
+    "ts-jest": "26.4.1",
+    "tslint": "6.1.1",
+    "typescript": "3.9.7"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "<rootDir>/coverage",
+    "coverageReporters": [
+      "text",
+      "json",
+      "lcov",
+      "text-summary",
+      "cobertura"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "moduleNameMapper": {
+      "@fluentui/react/lib/(.*)$": "@fluentui/react/lib-commonjs/$1",
+      "^resx-strings/en-us.json": "<rootDir>/node_modules/@microsoft/sp-core-library/lib/resx-strings/en-us.json"
+    },
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "suiteName": "SPFx unit test",
+          "outputDirectory": "./reports/",
+          "outputName": "./junit.xml"
+        }
+      ]
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts?|tsx?)$",
+    "testPathIgnorePatterns": [
+      "lib/"
+    ],
+    "transform": {
+      "^.+\\.(js|ts|tsx)$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@microsoft/sp-core-library))"
+    ]
+  }
+}

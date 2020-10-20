@@ -1,0 +1,38 @@
+define([], function () {
+  return {
+    AddCircleMaskFieldLabel: '¿Agregar máscara circular a la imagen de perfil?',
+    BusinessPhonesFormLabel: 'Teléfono de negocios',
+    CityFormLabel: 'Ciudad',
+    CloseButton: 'Cerrar',
+    ContentGroupName: 'Contenido',
+    CopySignatureButton: 'Copier la signature',
+    CopySignatureSuccessButton: 'Copiado!',
+    CountryFormLabel: 'País',
+    CustomPropertyCollectionLabel: 'Propiedades personalizadas',
+    CustomPropertyManageButton: 'Administrar propiedades personalizadas',
+    DepartmentFormLabel: 'Departamento',
+    DisplayNameFormLabel: 'Nombre',
+    EditValuesButton: 'Editar propiedades de usuario',
+    EnableEditingFieldLabel: '¿Habilitar edición?',
+    ErrorMessage: 'Se produjo un error. Pruebe a actualizar la página.',
+    ForceLowercaseEmailsFieldLabel: '¿Forzar correos electrónicos en minúsculas?',
+    GivenNameFormLabel: 'Nombre de pila',
+    HtmlTemplateFieldLabel: 'Plantilla HTML (Mustache)',
+    ImageSizeFieldLabel: 'Tamaño de la imagen (px)',
+    JobTitleFormLabel: 'Título profesional',
+    KeyCollectionLabel: 'Clave (Mustache variable)',
+    LabelCollectionLabel: 'Etiqueta',
+    MailFormLabel: 'Correo electrónico',
+    MobilePhoneFormLabel: 'Número de teléfono móvil',
+    OfficeLocationFormLabel: 'Localización de la oficina',
+    PostalCodeFormLabel: 'Código postal',
+    PropertyPaneDescription:
+      'Muestra una plantilla reemplazada con propiedades de perfil. Las plantillas HTML utilizan Moustache para representar la firma del correo electrónico. Las propiedades de perfil de Graph incluyen: {{businessPhones}}, {{city}}, {{country}}, {{department}}, {{displayName}}, {{givenName}}, {{jobTitle}}, {{mail}}, {{mobilePhone}}, {{postalCode}}, {{preferredLanguage}}, {{state}}, {{streetAddress}}, {{surname}}.',
+    StateFormLabel: 'Región',
+    StreetAddressFormLabel: 'Dirección',
+    SurnameFormLabel: 'Apellido',
+    UserEditableCollectionLabel: '¿Editable por el usuario?',
+    ValueCollectionLabel: 'Valor',
+    WebPartTitleFieldLabel: 'Título del elemento web'
+  };
+});

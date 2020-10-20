@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "email-signature-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/emailSignature/EmailSignatureWebPart.js",
+          "manifest": "./src/webparts/emailSignature/EmailSignatureWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "EmailSignatureWebPartStrings": "lib/webparts/emailSignature/loc/{locale}.js",
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
+  }
+}

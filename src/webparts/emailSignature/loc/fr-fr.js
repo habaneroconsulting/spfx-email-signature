@@ -1,0 +1,38 @@
+define([], function () {
+  return {
+    AddCircleMaskFieldLabel: "Ajouter un masque de cercle à l'image de profil?",
+    BusinessPhonesFormLabel: 'Téléphone professionnel',
+    CityFormLabel: 'Ville',
+    CloseButton: 'Fermer',
+    ContentGroupName: 'Contenu',
+    CopySignatureButton: 'Copier la signature',
+    CopySignatureSuccessButton: 'Copié!',
+    CountryFormLabel: 'Pays',
+    CustomPropertyCollectionLabel: 'Propriétés personnalisées',
+    CustomPropertyManageButton: 'Gérer les propriétés personnalisées',
+    DepartmentFormLabel: 'Service',
+    DisplayNameFormLabel: 'Nom',
+    EditValuesButton: 'Modifier les propriétés des utilisateurs',
+    EnableEditingFieldLabel: 'Activer la modification?',
+    ErrorMessage: 'Désolé... Une erreur s’est produite. Veuillez essayer d’actualiser la page.',
+    ForceLowercaseEmailsFieldLabel: 'Forcer les e-mails en minuscules?',
+    GivenNameFormLabel: 'Prénom',
+    HtmlTemplateFieldLabel: 'Modèle HTML (Mustache)',
+    ImageSizeFieldLabel: "Taille de l'image (px)",
+    JobTitleFormLabel: 'Intitulé du travail',
+    KeyCollectionLabel: 'Clé (Mustache variable)',
+    LabelCollectionLabel: 'Légende',
+    MailFormLabel: 'Courrier',
+    MobilePhoneFormLabel: 'Numéro de téléphone mobile',
+    OfficeLocationFormLabel: 'Emplacement du bureau',
+    PostalCodeFormLabel: 'Code postal',
+    PropertyPaneDescription:
+      'Affiche un modèle remplacé par les propriétés du profil. Les modèles HTML utilisent Moustache pour rendre la signature électronique. Les propriétés de profil de Graph incluent: {{businessPhones}}, {{city}}, {{country}}, {{department}}, {{displayName}}, {{givenName}}, {{jobTitle}}, {{mail}}, {{mobilePhone}}, {{postalCode}}, {{preferredLanguage}}, {{state}}, {{streetAddress}}, {{surname}}.',
+    StateFormLabel: 'Région',
+    StreetAddressFormLabel: 'Adresse de rue',
+    SurnameFormLabel: 'Nom',
+    UserEditableCollectionLabel: "Modifiable par l'utilisateur?",
+    ValueCollectionLabel: 'Valeur',
+    WebPartTitleFieldLabel: 'Titre du composant WebPart'
+  };
+});
