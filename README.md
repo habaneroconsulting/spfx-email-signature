@@ -31,7 +31,7 @@ This web part is licensed under MIT.
    Note that this solution will require additional permissions and informs you
    that it will request *User.ReadBasic.All* from Microsoft Graph.
 5. Click *Deploy* to deploy the solution.
-6. In the *SharePoint admin center*, go to the *[API access]*(https://docs.microsoft.com/en-us/sharepoint/api-access)*
+6. In the *SharePoint admin center*, go to the *[API access](https://docs.microsoft.com/en-us/sharepoint/api-access)*
    page and approve the new Microsoft Graph API access request.
 7. **(Optional):** If in step #4, the solution was not made tenant wide, go to
    the site that the web part should be placed on. In the *Site Contents*, add
