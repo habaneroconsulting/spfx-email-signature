@@ -10,9 +10,9 @@
     "developer": {
       "name": "Habanero Consulting Group",
       "websiteUrl": "https://www.connectwithgo.com",
-      "privacyUrl": "",
-      "termsOfUseUrl": "",
-      "mpnId": ""
+      "privacyUrl": "https://www.habaneroconsulting.com/privacy-policy",
+      "termsOfUseUrl": "https://www.habaneroconsulting.com/terms-of-use",
+      "mpnId": "1161633"
     },
     "webApiPermissionRequests": [
       {
