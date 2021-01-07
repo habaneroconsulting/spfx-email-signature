@@ -18,10 +18,12 @@ export const EmailSignatureLoadingScreen = ({ themeVariant }: EmailSignatureLoad
       <div
         css={{
           border: `1px solid ${themeVariant.palette.neutralLight}`,
+          boxSizing: 'border-box',
           display: 'inline-block',
           label: 'email-signature-template-placeholder',
           marginBottom: 16,
-          padding: 16
+          padding: 16,
+          width: '100%'
         }}
       >
         <div css={{ display: 'grid', rowGap: 16 }}>
