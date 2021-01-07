@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react';
 
-import { jsx } from '@emotion/core';
+import { jsx } from '@emotion/react';
 import { ActionButton } from '@fluentui/react/lib/Button';
 import { FontIcon } from '@fluentui/react/lib/Icon';
 import { Stack } from '@fluentui/react/lib/Stack';

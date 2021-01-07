@@ -2,7 +2,7 @@
 
 import { Fragment, useCallback, useState } from 'react';
 
-import { jsx } from '@emotion/core';
+import { jsx } from '@emotion/react';
 import { ActionButton } from '@fluentui/react/lib/Button';
 import { Panel } from '@fluentui/react/lib/Panel';
 import { Stack } from '@fluentui/react/lib/Stack';

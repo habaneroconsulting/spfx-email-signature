@@ -2,7 +2,7 @@
 
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
 
-import { jsx } from '@emotion/core';
+import { jsx } from '@emotion/react';
 import { Stack } from '@fluentui/react/lib/Stack';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import { DisplayMode, Log } from '@microsoft/sp-core-library';

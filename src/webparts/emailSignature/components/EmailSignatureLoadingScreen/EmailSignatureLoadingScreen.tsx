@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx } from '@emotion/core';
+import { jsx } from '@emotion/react';
 import { Shimmer } from '@fluentui/react/lib/Shimmer';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 
