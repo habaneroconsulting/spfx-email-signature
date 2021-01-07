@@ -128,7 +128,7 @@ export default class EmailSignatureWebPart extends BaseClientSideWebPart<EmailSi
                       id: 'value',
                       title: strings.ValueCollectionLabel,
                       type: this._CustomCollectionFieldType.string,
-                      required: true
+                      required: false
                     },
                     {
                       id: 'editable',
