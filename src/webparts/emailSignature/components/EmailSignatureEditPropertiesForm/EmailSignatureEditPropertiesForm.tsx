@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { Fragment, useCallback, useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import { jsx } from '@emotion/react';
 import { ActionButton } from '@fluentui/react/lib/Button';

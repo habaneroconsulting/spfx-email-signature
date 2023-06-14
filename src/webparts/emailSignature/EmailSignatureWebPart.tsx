@@ -19,10 +19,10 @@ export default class EmailSignatureWebPart extends BaseClientSideWebPart<EmailSi
   private _themeVariant?: IReadonlyTheme | undefined;
 
   // Dynamically loaded property fields.
-  private _CustomCollectionFieldType;
-  private _PropertyFieldCodeEditor;
-  private _PropertyFieldCollectionData;
-  private _PropertyFieldNumber;
+  private _CustomCollectionFieldType: any;
+  private _PropertyFieldCodeEditor: any;
+  private _PropertyFieldCollectionData: any;
+  private _PropertyFieldNumber: any;
 
   /**
    * Get theme, Microsoft Graph values.
@@ -33,7 +33,7 @@ export default class EmailSignatureWebPart extends BaseClientSideWebPart<EmailSi
     this._themeProvider.themeChangedEvent.add(this, this._handleThemeChangedEvent);
     this._themeVariant = this._themeProvider?.tryGetTheme();
 
-    const msGraphClient = await this.context.msGraphClientFactory.getClient();
+    const msGraphClient = await this.context.msGraphClientFactory.getClient('3');
 
     this._emailSignatureService = new EmailSignatureService(msGraphClient);
 

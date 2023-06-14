@@ -1,12 +1,25 @@
 {
   "@microsoft/generator-sharepoint": {
-    "version": "1.11.0",
+    "whichFolder": "subdir",
+    "solutionName": "spfx-project-template",
+    "packageManager": "npm",
+    "skipFeatureDeployment": true,
+    "componentType": "webpart",
+    "template": "react",
+    "componentName": "Email signature web part",
+    "componentDescription": "Email signature web part description",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "16.18.0",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.9.1"
+    },
+    "version": "1.17.2",
     "libraryName": "spfx-email-signatures",
     "libraryId": "421f676f-6526-4167-9810-cf984c8d3105",
     "environment": "spo",
-    "packageManager": "npm",
-    "isCreatingSolution": true,
-    "isDomainIsolated": false,
-    "componentType": "webpart"
+    "solutionShortDescription": "spfx-email-signatures description",
+    "isDomainIsolated": false
   }
 }

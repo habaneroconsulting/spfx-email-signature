@@ -1,11 +1,12 @@
-import { MSGraphClient } from '@microsoft/sp-http';
+import type { MSGraphClientV3 } from '@microsoft/sp-http';
+import { ResponseType } from '@microsoft/microsoft-graph-client';
 
 import { IEmailSignatureService } from './IEmailSignatureService';
 
 export class EmailSignatureService implements IEmailSignatureService {
-  private _msGraphClient: MSGraphClient;
+  private _msGraphClient: MSGraphClientV3;
 
-  constructor(msGraphClient: MSGraphClient) {
+  constructor(msGraphClient: MSGraphClientV3) {
     this._msGraphClient = msGraphClient;
   }
 
@@ -19,7 +20,7 @@ export class EmailSignatureService implements IEmailSignatureService {
    * user does not have a photo.
    */
   public async getUserPhotoAsBase64(): Promise<string> {
-    const blob = await this._msGraphClient.api('/me/photo/$value').responseType('blob').get();
+    const blob = await this._msGraphClient.api('/me/photo/$value').responseType(ResponseType.BLOB).get();
 
     return new Promise((resolve) => {
       const reader = new FileReader();

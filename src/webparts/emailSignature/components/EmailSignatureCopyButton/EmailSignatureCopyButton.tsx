@@ -42,8 +42,8 @@ export const EmailSignatureCopyButton = ({ html, themeVariant }: EmailSignatureC
       </ActionButton>
 
       <Transition in={showCopySuccessMessage} onEntered={removeCopySuccessMessage} timeout={{ enter: 2500, exit: 500 }}>
-        {(state) => {
-          const transitionStyles = {
+        {(state: string) => {
+          const transitionStyles: any = {
             entering: {},
             entered: {},
             exiting: { opacity: 0, transition: `opacity 500ms ease-in-out` },

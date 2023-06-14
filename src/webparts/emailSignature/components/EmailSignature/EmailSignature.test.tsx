@@ -2,7 +2,7 @@ import React from 'react';
 
 import { setIconOptions } from '@fluentui/react/lib/Styling';
 import { DisplayMode } from '@microsoft/sp-core-library';
-import { MSGraphClient } from '@microsoft/sp-http';
+import { MSGraphClientV3 } from '@microsoft/sp-http';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render, waitFor } from '@testing-library/react';
@@ -64,6 +64,7 @@ describe('Email signature web part', () => {
 
   const DEFAULT_PROPS = {
     addCircleMask: false,
+    //@ts-ignore
     customProperties: [],
     displayMode: DisplayMode.Read,
     enableEditing: true,
@@ -75,7 +76,7 @@ describe('Email signature web part', () => {
     webPartTitleText: 'Email signature'
   };
 
-  const msGraphClient = (jest.fn() as unknown) as MSGraphClient;
+  const msGraphClient = (jest.fn() as unknown) as MSGraphClientV3;
 
   test('shows the given HTML', async () => {
     const emailSignatureService = new EmailSignatureService(msGraphClient);

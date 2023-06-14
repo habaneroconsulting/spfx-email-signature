@@ -14,6 +14,17 @@
       "termsOfUseUrl": "https://www.habaneroconsulting.com/terms-of-use",
       "mpnId": "1161633"
     },
+    "metadata": {
+      "shortDescription": {
+        "default": "Generate company branded email signatures."
+      },
+      "longDescription": {
+        "default": "Create email signature templates and allow users to generate their own company branded signatures."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
     "webApiPermissionRequests": [
       {
         "resource": "Microsoft Graph",
