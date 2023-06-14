@@ -1,6 +1,6 @@
-import React from 'react';
+/** @jsx jsx */
 
-import { DisplayMode } from '@microsoft/sp-core-library';
+import { jsx } from '@emotion/react';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
 import { act, fireEvent, render } from '@testing-library/react';
@@ -11,7 +11,7 @@ describe('Email signature web part title', () => {
   test('shows web part title', () => {
     const { getByText } = render(
       <EmailSignatureWebPartTitle
-        displayMode={DisplayMode.Read}
+        displayMode={1} //{DisplayMode.Read}
         updateWebPartTitleText={() => {}}
         webPartTitleText="Sample web part title"
       />
@@ -22,7 +22,11 @@ describe('Email signature web part title', () => {
 
   test('not show when web part title is blank', () => {
     const { queryByText } = render(
-      <EmailSignatureWebPartTitle displayMode={DisplayMode.Read} updateWebPartTitleText={() => {}} webPartTitleText="" />
+      <EmailSignatureWebPartTitle
+        displayMode={1} //{DisplayMode.Read}
+        updateWebPartTitleText={() => {}}
+        webPartTitleText=""
+      />
     );
 
     expect(queryByText(/Sample web part title/)).toBeNull();
@@ -33,7 +37,7 @@ describe('Email signature web part title', () => {
 
     const { getByText } = render(
       <EmailSignatureWebPartTitle
-        displayMode={DisplayMode.Edit}
+        displayMode={2} //{DisplayMode.Edit}
         updateWebPartTitleText={onChange}
         webPartTitleText="Sample web part title"
       />

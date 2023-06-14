@@ -1,5 +1,6 @@
-import React from 'react';
+/** @jsx jsx */
 
+import { jsx } from '@emotion/react';
 import { setIconOptions } from '@fluentui/react/lib/Styling';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';

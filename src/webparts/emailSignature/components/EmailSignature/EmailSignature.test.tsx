@@ -1,7 +1,7 @@
-import React from 'react';
+/** @jsx jsx */
 
+import { jsx } from '@emotion/react';
 import { setIconOptions } from '@fluentui/react/lib/Styling';
-import { DisplayMode } from '@microsoft/sp-core-library';
 import { MSGraphClientV3 } from '@microsoft/sp-http';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
@@ -64,9 +64,10 @@ describe('Email signature web part', () => {
 
   const DEFAULT_PROPS = {
     addCircleMask: false,
+    copyAsHtml: false,
     //@ts-ignore
     customProperties: [],
-    displayMode: DisplayMode.Read,
+    displayMode: 1, //DisplayMode.Read,
     enableEditing: true,
     forceLowercaseEmails: false,
     htmlTemplate: '<p>All the best</p>',
