@@ -1,5 +1,6 @@
-import React from 'react';
+/** @jsx jsx */
 
+import { jsx } from '@emotion/react';
 import { setIconOptions } from '@fluentui/react/lib/Styling';
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/extend-expect';
@@ -17,6 +18,7 @@ jest.mock(
   'EmailSignatureWebPartStrings',
   () => {
     return {
+      CopyAsHtmlButton: 'Copy as HTML',
       CopySignatureButton: 'Copy signature',
       CopySignatureSuccessButton: 'Copied!'
     };
@@ -26,15 +28,19 @@ jest.mock(
 
 describe('Email signature copy button', () => {
   test('shows button text', () => {
-    const { getByText } = render(<EmailSignatureCopyButton html={''} themeVariant={themeVariant} />);
+    const { getByText } = render(<EmailSignatureCopyButton copyAsHtml={false} html={''} themeVariant={themeVariant} />);
 
     expect(getByText(/Copy signature/)).toBeInTheDocument();
   });
 
   test('shows success message on button click', async () => {
-    document.execCommand = jest.fn();
+    //@ts-ignore
+    navigator.clipboard = {
+      write: jest.fn()
+    };
+    window.ClipboardItem = jest.fn();
 
-    const { getByText } = render(<EmailSignatureCopyButton html={''} themeVariant={themeVariant} />);
+    const { getByText } = render(<EmailSignatureCopyButton copyAsHtml={false} html={''} themeVariant={themeVariant} />);
 
     expect(getByText(/Copied!/)).not.toBeVisible();
 
@@ -44,7 +50,34 @@ describe('Email signature copy button', () => {
 
     await waitFor(() => {
       expect(getByText(/Copied!/)).toBeVisible();
-      expect(document.execCommand).toHaveBeenCalledWith('copy');
+      expect(navigator.clipboard.write).toHaveBeenCalled();
+    });
+  });
+
+  test('shows HTML button text', () => {
+    const { getByText } = render(<EmailSignatureCopyButton copyAsHtml={true} html={''} themeVariant={themeVariant} />);
+
+    expect(getByText(/Copy as HTML/)).toBeInTheDocument();
+  });
+
+  test('shows success message on HTML button click', async () => {
+    //@ts-ignore
+    navigator.clipboard = {
+      writeText: jest.fn()
+    };
+    window.ClipboardItem = jest.fn();
+
+    const { getByText } = render(<EmailSignatureCopyButton copyAsHtml={true} html={''} themeVariant={themeVariant} />);
+
+    expect(getByText(/Copied!/)).not.toBeVisible();
+
+    act(() => {
+      fireEvent.click(getByText(/Copy as HTML/));
+    });
+
+    await waitFor(() => {
+      expect(getByText(/Copied!/)).toBeVisible();
+      expect(navigator.clipboard.writeText).toHaveBeenCalled();
     });
   });
 });

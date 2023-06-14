@@ -4,6 +4,8 @@ declare interface IEmailSignatureWebPartStrings {
   CityFormLabel: string;
   CloseButton: string;
   ContentGroupName: string;
+  CopyAsHtmlFieldLabel: string;
+  CopyAsHtmlButton: string;
   CopySignatureButton: string;
   CopySignatureSuccessButton: string;
   CountryFormLabel: string;

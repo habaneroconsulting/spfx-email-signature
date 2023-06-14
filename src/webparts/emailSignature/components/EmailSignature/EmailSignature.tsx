@@ -45,6 +45,7 @@ type EmailSignatureState =
 
 export const EmailSignature = ({
   addCircleMask,
+  copyAsHtml,
   customProperties,
   displayMode,
   emailSignatureService,
@@ -183,7 +184,7 @@ export const EmailSignature = ({
         )}
 
         <Stack.Item>
-          <EmailSignatureCopyButton html={html} themeVariant={themeVariant} />
+          <EmailSignatureCopyButton copyAsHtml={copyAsHtml} html={html} themeVariant={themeVariant} />
         </Stack.Item>
       </Stack>
     </Fragment>

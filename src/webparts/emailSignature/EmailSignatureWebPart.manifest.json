@@ -20,6 +20,7 @@
       "officeFabricIconFontName": "CreateMailRule",
       "properties": {
         "addCircleMask": true,
+        "copyAsHtml": false,
         "customProperties": [
           { "editable": false, "key": "companyName", "label": "Company name", "value": "Example Company" },
           { "editable": false, "key": "companyUrl", "label": "Company URL", "value": "https://www.example.com" },

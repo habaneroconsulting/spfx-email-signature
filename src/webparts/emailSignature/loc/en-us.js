@@ -5,6 +5,8 @@ define([], function () {
     CityFormLabel: 'City',
     CloseButton: 'Close',
     ContentGroupName: 'Content',
+    CopyAsHtmlFieldLabel: 'Copy as HTML?',
+    CopyAsHtmlButton: 'Copy as HTML',
     CopySignatureButton: 'Copy signature',
     CopySignatureSuccessButton: 'Copied!',
     CountryFormLabel: 'Country',

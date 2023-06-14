@@ -95,7 +95,10 @@ export class EmailSignatureWebPartPropertyPane {
                 }),
                 PropertyPaneToggle('forceLowercaseEmails', {
                   label: strings.ForceLowercaseEmailsFieldLabel
-                })
+                }),
+                PropertyPaneToggle('copyAsHtml', {
+                  label: strings.CopyAsHtmlFieldLabel
+                }),
               ]
             }
           ]

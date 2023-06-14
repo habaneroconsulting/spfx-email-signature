@@ -12,33 +12,36 @@ import { Transition } from 'react-transition-group';
 import * as strings from 'EmailSignatureWebPartStrings';
 
 type EmailSignatureCopyButtonProps = {
+  copyAsHtml: boolean;
   html: string;
   themeVariant?: IReadonlyTheme;
 };
 
-export const EmailSignatureCopyButton = ({ html, themeVariant }: EmailSignatureCopyButtonProps) => {
+export const EmailSignatureCopyButton = ({ copyAsHtml = false, html, themeVariant }: EmailSignatureCopyButtonProps) => {
   const [showCopySuccessMessage, setShowCopySuccessMessage] = useState(false);
 
   // Copy the signature as rich text.
   const copySignature = useCallback(async () => {
-    const { ClipboardItem, write } = await import(/* webpackChunkName: "emailsignature-clipboard-polyfill" */ 'clipboard-polyfill');
-
-    const item = new ClipboardItem({
-      'text/html': html
-    });
-
-    await write([item]);
+    if (copyAsHtml) {
+      await navigator.clipboard.writeText(html);
+    } else {
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+        })
+      ]);
+    }
 
     // Show `Copied!` for a moment.
     setShowCopySuccessMessage(true);
-  }, [html]);
+  }, [copyAsHtml, html]);
 
   const removeCopySuccessMessage = useCallback(() => setShowCopySuccessMessage(false), []);
 
   return (
     <Stack horizontal tokens={{ childrenGap: 16 }} verticalAlign="center">
       <ActionButton iconProps={{ iconName: 'Copy' }} onClick={copySignature}>
-        {strings.CopySignatureButton}
+        {copyAsHtml ? strings.CopyAsHtmlButton : strings.CopySignatureButton}
       </ActionButton>
 
       <Transition in={showCopySuccessMessage} onEntered={removeCopySuccessMessage} timeout={{ enter: 2500, exit: 500 }}>
