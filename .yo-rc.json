@@ -10,12 +10,12 @@
     "componentDescription": "Email signature web part description",
     "plusBeta": false,
     "isCreatingSolution": true,
-    "nodeVersion": "16.18.0",
+    "nodeVersion": "18.19.0",
     "sdksVersions": {
       "@microsoft/microsoft-graph-client": "3.0.2",
       "@microsoft/teams-js": "2.9.1"
     },
-    "version": "1.17.2",
+    "version": "1.18.2",
     "libraryName": "spfx-email-signatures",
     "libraryId": "421f676f-6526-4167-9810-cf984c8d3105",
     "environment": "spo",
