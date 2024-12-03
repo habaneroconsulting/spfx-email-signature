@@ -1,0 +1,39 @@
+name: Build and package
+
+on:
+  workflow_call:
+    inputs:
+      zipped-package:
+        description: Path to sppkg file
+        required: false
+        type: string
+
+jobs:
+  build:
+    name: Build and package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile source code
+        run: npx gulp bundle --ship
+
+      - name: Create SharePoint Framework package
+        run: npx gulp package-solution --ship
+
+      - name: Upload SharePoint Framework package
+        uses: actions/upload-artifact@v4
+        if: ${{ inputs.zipped-package != '' }}
+        with:
+          name: package
+          path: sharepoint/${{ inputs.zipped-package }}
