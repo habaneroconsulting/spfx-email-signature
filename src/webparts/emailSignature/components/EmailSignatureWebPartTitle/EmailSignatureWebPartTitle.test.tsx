@@ -2,7 +2,6 @@
 
 import { jsx } from '@emotion/react';
 import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
 import { act, fireEvent, render } from '@testing-library/react';
 
 import { EmailSignatureWebPartTitle } from './EmailSignatureWebPartTitle';
