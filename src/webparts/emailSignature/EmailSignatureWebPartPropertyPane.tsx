@@ -99,6 +99,9 @@ export class EmailSignatureWebPartPropertyPane {
                 PropertyPaneToggle('copyAsHtml', {
                   label: strings.CopyAsHtmlFieldLabel
                 }),
+                PropertyPaneToggle('downloadHtml', {
+                  label: strings.DownloadAsHtmlFieldLabel
+                })
               ]
             }
           ]

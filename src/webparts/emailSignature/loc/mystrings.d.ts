@@ -11,6 +11,8 @@ declare interface IEmailSignatureWebPartStrings {
   CountryFormLabel: string;
   CustomPropertyCollectionLabel: string;
   CustomPropertyManageButton: string;
+  DownloadAsHtmlButton: string;
+  DownloadAsHtmlFieldLabel: string;
   DepartmentFormLabel: string;
   DisplayNameFormLabel: string;
   EditValuesButton: string;

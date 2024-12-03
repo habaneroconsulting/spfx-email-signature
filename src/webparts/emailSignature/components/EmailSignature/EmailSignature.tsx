@@ -20,6 +20,7 @@ import { EmailSignatureEditPropertiesForm } from '../EmailSignatureEditPropertie
 import { EmailSignatureLoadingScreen } from '../EmailSignatureLoadingScreen/EmailSignatureLoadingScreen';
 import { EmailSignatureTemplate } from '../EmailSignatureTemplate/EmailSignatureTemplate';
 import { EmailSignatureWebPartTitle } from '../EmailSignatureWebPartTitle/EmailSignatureWebPartTitle';
+import { EmailSignatureDownloadHtmlButton } from '../EmailSignatureDownloadHtmlButton/EmailSignatureDownloadHtmlButton';
 
 enum EmailSignatureStatus {
   Initial = 'initial',
@@ -47,6 +48,7 @@ export const EmailSignature = ({
   addCircleMask,
   copyAsHtml,
   customProperties,
+  downloadHtml,
   displayMode,
   emailSignatureService,
   enableEditing,
@@ -180,6 +182,12 @@ export const EmailSignature = ({
               htmlTemplate={htmlTemplate}
               profileProperties={state.profileProperties}
             />
+          </Stack.Item>
+        )}
+
+        {downloadHtml && (
+          <Stack.Item>
+            <EmailSignatureDownloadHtmlButton html={html} />
           </Stack.Item>
         )}
 

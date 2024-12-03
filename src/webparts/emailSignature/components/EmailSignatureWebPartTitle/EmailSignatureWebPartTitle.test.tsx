@@ -6,6 +6,15 @@ import { act, fireEvent, render } from '@testing-library/react';
 
 import { EmailSignatureWebPartTitle } from './EmailSignatureWebPartTitle';
 
+// Mock out strings module
+jest.mock(
+  'EmailSignatureWebPartStrings',
+  () => ({
+    WebPartTitleFieldLabel: 'Web part title'
+  }),
+  { virtual: true }
+);
+
 describe('Email signature web part title', () => {
   test('shows web part title', () => {
     const { getByText } = render(

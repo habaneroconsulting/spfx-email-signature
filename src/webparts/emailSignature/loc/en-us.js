@@ -1,11 +1,11 @@
 define([], function () {
   return {
-    AddCircleMaskFieldLabel: 'Add circle mask to profile image?',
+    AddCircleMaskFieldLabel: 'Add circle mask to profile image',
     BusinessPhonesFormLabel: 'Business phone',
     CityFormLabel: 'City',
     CloseButton: 'Close',
     ContentGroupName: 'Content',
-    CopyAsHtmlFieldLabel: 'Copy as HTML?',
+    CopyAsHtmlFieldLabel: 'Copy as HTML',
     CopyAsHtmlButton: 'Copy as HTML',
     CopySignatureButton: 'Copy signature',
     CopySignatureSuccessButton: 'Copied!',
@@ -14,10 +14,12 @@ define([], function () {
     CustomPropertyManageButton: 'Manage custom properties',
     DepartmentFormLabel: 'Department',
     DisplayNameFormLabel: 'Name',
+    DownloadAsHtmlButton: 'Download HTML',
+    DownloadAsHtmlFieldLabel: 'Enable download HTML',
     EditValuesButton: 'Edit signature',
-    EnableEditingFieldLabel: 'Enable editing?',
+    EnableEditingFieldLabel: 'Enable editing',
     ErrorMessage: 'Sorry, an error occurred. Try refreshing the page.',
-    ForceLowercaseEmailsFieldLabel: 'Force lowercase emails?',
+    ForceLowercaseEmailsFieldLabel: 'Force lowercase emails',
     GivenNameFormLabel: 'First name',
     HtmlTemplateFieldLabel: 'HTML (Mustache) template',
     ImageSizeFieldLabel: 'Image size (px)',
@@ -33,7 +35,7 @@ define([], function () {
     StateFormLabel: 'State or province',
     StreetAddressFormLabel: 'Street address',
     SurnameFormLabel: 'Last name',
-    UserEditableCollectionLabel: 'User editable?',
+    UserEditableCollectionLabel: 'User editable',
     ValueCollectionLabel: 'Value',
     WebPartTitleFieldLabel: 'Web part title'
   };
