@@ -3,7 +3,7 @@
   "solution": {
     "name": "spfx-email-signature-client-side-solution",
     "id": "421f676f-6526-4167-9810-cf984c8d3105",
-    "version": "1.2.0.0",
+    "version": "1.4.0.0",
     "includeClientSideAssets": true,
     "isDomainIsolated": false,
     "skipFeatureDeployment": true,
@@ -21,7 +21,9 @@
       "longDescription": {
         "default": "Create email signature templates and allow users to generate their own company branded signatures."
       },
-      "screenshotPaths": [],
+      "screenshotPaths": [
+        "https://raw.githubusercontent.com/habaneroconsulting/spfx-email-signature/refs/heads/master/assets/screenshots/Preview.png"
+      ],
       "videoUrl": "",
       "categories": []
     },
