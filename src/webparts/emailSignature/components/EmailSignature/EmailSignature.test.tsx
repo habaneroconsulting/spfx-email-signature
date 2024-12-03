@@ -32,6 +32,7 @@ jest.mock(
     CustomPropertyManageButton: 'Manage custom properties',
     DepartmentFormLabel: 'Department',
     DisplayNameFormLabel: 'Name',
+    DownloadAsHtmlButton: 'Download HTML',
     EditValuesButton: 'Edit signature',
     ErrorMessage: 'Sorry, an error occurred. Try refreshing the page.',
     GivenNameFormLabel: 'First name',
@@ -67,6 +68,7 @@ describe('Email signature web part', () => {
     //@ts-ignore
     customProperties: [],
     displayMode: 1, //DisplayMode.Read,
+    downloadHtml: false,
     enableEditing: true,
     forceLowercaseEmails: false,
     htmlTemplate: '<p>All the best</p>',
@@ -214,6 +216,26 @@ describe('Email signature web part', () => {
 
     await waitFor(() => {
       expect(getByText(/Given name: New first name/)).toBeInTheDocument();
+    });
+  });
+
+  test('download HTML hidden by default', async () => {
+    const emailSignatureService = new EmailSignatureService(msGraphClient);
+
+    const { queryByText } = render(<EmailSignature {...DEFAULT_PROPS} emailSignatureService={emailSignatureService} />);
+
+    await waitFor(() => {
+      expect(queryByText(/Download HTML/)).toBeNull();
+    });
+  });
+
+  test('download HTML visible', async () => {
+    const emailSignatureService = new EmailSignatureService(msGraphClient);
+
+    const { getByText } = render(<EmailSignature {...DEFAULT_PROPS} downloadHtml={true} emailSignatureService={emailSignatureService} />);
+
+    await waitFor(() => {
+      expect(getByText(/Download HTML/)).toBeInTheDocument();
     });
   });
 });

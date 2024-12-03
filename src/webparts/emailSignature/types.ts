@@ -9,6 +9,7 @@ export type EmailSignatureWebPartProps = {
   addCircleMask: boolean;
   copyAsHtml: boolean;
   customProperties: EmailSignatureCustomProperty[];
+  downloadHtml: boolean;
   enableEditing: boolean;
   forceLowercaseEmails: boolean;
   htmlTemplate: string;

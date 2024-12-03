@@ -5,7 +5,7 @@ import { DisplayMode } from '@microsoft/sp-core-library';
 import { useRef, useState, useEffect } from 'react';
 
 import { EmailSignatureWebPartProps } from '../../types';
-import strings from 'EmailSignatureWebPartStrings';
+import * as strings from 'EmailSignatureWebPartStrings';
 
 type EmailSignatureWebPartTitleProps = Pick<EmailSignatureWebPartProps, 'webPartTitleText'> & {
   displayMode: DisplayMode;

@@ -7,10 +7,11 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import { EmailSignature } from './components/EmailSignature/EmailSignature';
 import { EmailSignatureService } from './services/EmailSignatureService';
-import { IEmailSignatureService } from './services/IEmailSignatureService';
 import { LocalEmailSignatureService } from './services/LocalEmailSignatureService';
-import { EmailSignatureWebPartProps } from './types';
+
 import type { EmailSignatureWebPartPropertyPane } from './EmailSignatureWebPartPropertyPane';
+import type { IEmailSignatureService } from './services/IEmailSignatureService';
+import type { EmailSignatureWebPartProps } from './types';
 
 export default class EmailSignatureWebPart extends BaseClientSideWebPart<EmailSignatureWebPartProps> {
   private _emailSignatureService: IEmailSignatureService;
