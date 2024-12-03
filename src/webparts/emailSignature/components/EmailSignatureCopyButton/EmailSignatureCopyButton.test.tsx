@@ -3,7 +3,6 @@
 import { jsx } from '@emotion/react';
 import { setIconOptions } from '@fluentui/react/lib/Styling';
 import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 import { themeVariant } from '../../__mocks__/ThemeVariant';

@@ -7,7 +7,7 @@ import { Stack } from '@fluentui/react/lib/Stack';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import { DisplayMode, Log } from '@microsoft/sp-core-library';
 import { debounce } from '@microsoft/sp-lodash-subset';
-import { render } from 'mustache';
+import Mustache from 'mustache';
 
 import * as strings from 'EmailSignatureWebPartStrings';
 import { USER_PROPERTIES } from '../../constants';
@@ -127,7 +127,7 @@ export const EmailSignature = ({
 
     currentProfileProperties.image = state.profileImage;
 
-    return render(htmlTemplate, currentProfileProperties);
+    return Mustache.render(htmlTemplate, currentProfileProperties);
   }, [forceLowercaseEmails, htmlTemplate, state]);
 
   // Update the user properties when changes occur in the form.

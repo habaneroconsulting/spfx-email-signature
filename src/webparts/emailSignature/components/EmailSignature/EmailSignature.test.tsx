@@ -4,7 +4,6 @@ import { jsx } from '@emotion/react';
 import { setIconOptions } from '@fluentui/react/lib/Styling';
 import { MSGraphClientV3 } from '@microsoft/sp-http';
 import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
 import { themeVariant } from '../../__mocks__/ThemeVariant';
@@ -77,7 +76,7 @@ describe('Email signature web part', () => {
     webPartTitleText: 'Email signature'
   };
 
-  const msGraphClient = (jest.fn() as unknown) as MSGraphClientV3;
+  const msGraphClient = jest.fn() as unknown as MSGraphClientV3;
 
   test('shows the given HTML', async () => {
     const emailSignatureService = new EmailSignatureService(msGraphClient);

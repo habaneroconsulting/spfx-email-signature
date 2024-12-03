@@ -3,7 +3,6 @@
 import { jsx } from '@emotion/react';
 import { setIconOptions } from '@fluentui/react/lib/Styling';
 import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render } from '@testing-library/react';
 
 import { EmailSignatureEditPropertiesForm } from './EmailSignatureEditPropertiesForm';
