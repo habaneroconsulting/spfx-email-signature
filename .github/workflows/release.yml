@@ -1,45 +1,69 @@
-name: Create versioned release
+###
+# Release workflow
+#
+# A workflow that runs on commits that are tagged with a version (v*). This will
+# attempt to build and package the SharePoint Framework package, and then create
+# a draft GitHub release. The package will be attached to the release.
+###
+
+name: Release
 
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
-  deploy:
+  setup:
+    name: Get package configuration
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.19.0]
+    outputs:
+      package: ${{ steps.set-package.outputs.package }}
+      zipped-package: ${{ steps.set-zipped-package.outputs.zipped-package }}
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get package-solution.json
+        id: package-solution-json
+        run: |
+          echo "config<<EOF" >> $GITHUB_OUTPUT
+          cat ./config/package-solution.json >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Output zipped-package
+        id: set-zipped-package
+        run: |
+          echo "zipped-package=${{ fromJson(steps.package-solution-json.outputs.config).paths.zippedPackage }}" >> $GITHUB_OUTPUT
+
+      - name: Output package
+        id: set-package
+        run: |
+          filepath="${{ steps.set-zipped-package.outputs.zipped-package }}"
+          filename=${filepath##*/}
+          echo "package=$filename" >> $GITHUB_OUTPUT
+
+  build:
+    name: Release build
+    needs: setup
+    uses: ./.github/workflows/build-package.yml
+    with:
+      zipped-package: ${{ needs.setup.outputs.zipped-package }}
+
+  release:
+    name: Create GitHub release
+    runs-on: ubuntu-latest
+    needs: [setup, build]
+    steps:
+      - name: Download package
+        uses: actions/download-artifact@v4
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
-        run: npm ci
-      - name: Test package
-        run: npm test
-      - name: Build package
-        run: npm run dist
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: package
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
           draft: true
+          files: ${{ needs.setup.outputs.package }}
           prerelease: true
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./sharepoint/solution/email-signature-web-part.sppkg
-          asset_name: email-signature-web-part-${{ github.ref }}.sppkg
-          asset_content_type: application/zip

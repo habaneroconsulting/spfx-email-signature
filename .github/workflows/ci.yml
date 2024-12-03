@@ -1,0 +1,21 @@
+###
+# Continuous integration workflow
+#
+# A workflow that runs on all code pushes to main, feature and hotfix branches.
+# This workflow is to help quickly identify changes that prevent building and
+# packaging our SharePoint Framework project.
+###
+
+name: Continuous integration
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'feature/*'
+      - 'hotfix/*'
+
+jobs:
+  build:
+    name: CI build
+    uses: ./.github/workflows/build-package.yml
