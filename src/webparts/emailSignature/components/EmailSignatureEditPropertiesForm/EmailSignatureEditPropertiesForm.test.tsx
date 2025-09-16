@@ -118,7 +118,7 @@ describe('Email signature edit properties form', () => {
 
     fireEvent.change(input, { target: { value: 'New first name' } });
 
-    expect(editProperty).toBeCalled();
+    expect(editProperty).toHaveBeenCalled();
     expect(input.value).toBe('New first name');
   });
 });

@@ -37,7 +37,8 @@ describe('Email signature copy button', () => {
     navigator.clipboard = {
       write: jest.fn()
     };
-    window.ClipboardItem = jest.fn();
+    window.ClipboardItem = jest.fn().mockImplementation(() => ({})) as any;
+    (window.ClipboardItem as any).supports = jest.fn().mockReturnValue(true);
 
     const { getByText } = render(<EmailSignatureCopyButton copyAsHtml={false} html={''} themeVariant={themeVariant} />);
 
@@ -64,7 +65,8 @@ describe('Email signature copy button', () => {
     navigator.clipboard = {
       writeText: jest.fn()
     };
-    window.ClipboardItem = jest.fn();
+    window.ClipboardItem = jest.fn().mockImplementation(() => ({})) as any;
+    (window.ClipboardItem as any).supports = jest.fn().mockReturnValue(true);
 
     const { getByText } = render(<EmailSignatureCopyButton copyAsHtml={true} html={''} themeVariant={themeVariant} />);
 

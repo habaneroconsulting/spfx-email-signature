@@ -95,8 +95,8 @@ describe('Email signature web part', () => {
     );
 
     await waitFor(() => {
-      expect(emailSignatureService.getUserProfileProperties).toBeCalled();
-      expect(emailSignatureService.getUserPhotoAsBase64).toBeCalled();
+      expect(emailSignatureService.getUserProfileProperties).toHaveBeenCalled();
+      expect(emailSignatureService.getUserPhotoAsBase64).toHaveBeenCalled();
       expect(getByText(/Email signature/)).toBeInTheDocument();
       expect(getByText(/All the best/)).toBeInTheDocument();
       expect(getByText(/Tim/)).toBeInTheDocument();
@@ -122,7 +122,7 @@ describe('Email signature web part', () => {
     );
 
     await waitFor(() => {
-      expect(emailSignatureService.getUserProfileProperties).toBeCalled();
+      expect(emailSignatureService.getUserProfileProperties).toHaveBeenCalled();
       expect(queryByText(/All the best/)).not.toBeInTheDocument();
       expect(getByText(/Sorry, an error occurred/)).toBeInTheDocument();
     });
@@ -144,7 +144,7 @@ describe('Email signature web part', () => {
     );
 
     await waitFor(() => {
-      expect(emailSignatureService.getUserProfileProperties).toBeCalled();
+      expect(emailSignatureService.getUserProfileProperties).toHaveBeenCalled();
       expect(queryByText(/All the best/)).not.toBeInTheDocument();
     });
   });
@@ -162,7 +162,7 @@ describe('Email signature web part', () => {
     );
 
     await waitFor(() => {
-      expect(emailSignatureService.getUserPhotoAsBase64).toBeCalled();
+      expect(emailSignatureService.getUserPhotoAsBase64).toHaveBeenCalled();
       expect(getByAltText(/Portrait of/)).toBeInTheDocument();
     });
   });
