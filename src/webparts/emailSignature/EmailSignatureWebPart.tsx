@@ -43,7 +43,7 @@ export default class EmailSignatureWebPart extends BaseClientSideWebPart<EmailSi
     return super.onInit();
   }
 
-  public async render() {
+  public render(): void {
     ReactDom.render(
       <EmailSignature
         displayMode={this.displayMode}
@@ -57,7 +57,7 @@ export default class EmailSignatureWebPart extends BaseClientSideWebPart<EmailSi
   }
 
   protected async loadPropertyPaneResources() {
-    super.loadPropertyPaneResources();
+    await super.loadPropertyPaneResources();
 
     const component = await import(
       /* webpackChunkName: 'EmailSignatureWebPartPropertyPane'*/
@@ -71,7 +71,7 @@ export default class EmailSignatureWebPart extends BaseClientSideWebPart<EmailSi
     return this._DeferredPropertyPane.getPropertyPaneConfiguration({
       context: this.context,
       onPropertyChange: (propertyPath, oldValue, newValue) => {
-        this.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
+        void this.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
       },
       properties: this.properties
     });

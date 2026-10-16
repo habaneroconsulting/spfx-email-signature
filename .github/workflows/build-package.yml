@@ -25,11 +25,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run tests
+        run: npm test
+
       - name: Compile source code
-        run: npx gulp bundle --ship
+        run: npx heft build --clean --production
 
       - name: Create SharePoint Framework package
-        run: npx gulp package-solution --ship
+        run: npx heft package-solution --production
 
       - name: Upload SharePoint Framework package
         uses: actions/upload-artifact@v4

@@ -44,14 +44,17 @@ This web part is licensed under MIT.
 ## Building
 
 This web part is built with the [SharePoint Framework (SPFx)](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/overview-client-side-web-parts).
-It can be cloned and built using the normal SPFx `gulp` tasks, or by using the
-following npm scripts:
+It uses the Heft-based SPFx toolchain and requires Node.js 22 (see `.nvmrc`).
+It can be cloned and built using the normal SPFx `heft` commands, or by using
+the following npm scripts:
 
-- `npm run serve:browser` to start a local development server using SharePoint
-  Workbench and mock data.
+- `npm run serve:browser` to start a local development server and open the
+  hosted SharePoint workbench.
 - `npm run serve` to start a local development server to run against a real
-  SharePoint environment
-- `npm run dist` to create a production build and package
+  SharePoint environment without opening a browser.
+- `npm run build` to create a development build.
+- `npm run dist` to create a production build and package.
+- `npm run lint` to lint the source code.
 
 
 ### Version numbering
@@ -63,8 +66,7 @@ is required.
 
 ## Testing
 
-This web part uses `jest` and `react-testing-library` for its tests. Due to
-limitations with SPFx's `react-dom` version and `react-testing-library`, this
-library has upgraded `react` and `react-dom` to 16.9.0.
+This web part uses `jest` and `react-testing-library` for its tests. Tests run
+directly against the TypeScript source using `ts-jest`.
 
 Run the tests with `npm test`.

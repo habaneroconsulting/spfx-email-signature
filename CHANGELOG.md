@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0]
+
+### Changed
+
+- Update SharePoint Framework to 1.23.2 and migrate from the `gulp` toolchain to `heft`.
+- Update Node.js to 22.23.2.
+- Use the SharePoint provided React instead of bundling a separate copy.
+- Update development and vendor dependencies.
+
 ## [1.5.0]
 
 ### Changed

@@ -110,7 +110,7 @@ describe('Email signature web part', () => {
     const emailSignatureService = new EmailSignatureService(msGraphClient);
 
     (emailSignatureService.getUserProfileProperties as jest.Mock).mockImplementationOnce(() => {
-      throw 'Error getting user profile properties';
+      throw new Error('Error getting user profile properties');
     });
 
     const { getByText, queryByText } = render(
@@ -132,7 +132,7 @@ describe('Email signature web part', () => {
     const emailSignatureService = new EmailSignatureService(msGraphClient);
 
     (emailSignatureService.getUserPhotoAsBase64 as jest.Mock).mockImplementationOnce(() => {
-      throw 'Error getting image';
+      throw new Error('Error getting image');
     });
 
     const { queryByText } = render(

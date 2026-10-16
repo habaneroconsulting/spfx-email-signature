@@ -68,7 +68,7 @@ export const EmailSignature = ({
       let profileProperties = await emailSignatureService.getUserProfileProperties(USER_PROPERTIES);
 
       // The `businessPhones` property is an array, so take the first value of any array item.
-      for (const key in profileProperties) {
+      for (const key of Object.keys(profileProperties)) {
         const value = profileProperties[key];
 
         if (Array.isArray(value)) {

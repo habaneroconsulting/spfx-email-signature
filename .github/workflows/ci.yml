@@ -11,7 +11,7 @@ name: Continuous integration
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
       - 'feature/*'
       - 'hotfix/*'
 
